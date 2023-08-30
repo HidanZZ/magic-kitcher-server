@@ -1,5 +1,5 @@
 {
-  "mongoURI": "mongodb+srv://user:<password>@cluster0.myff0xp.mongodb.net/?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://user:user@cluster0.myff0xp.mongodb.net/?retryWrites=true&w=majority",
   "jwtSecret": "jwtSecretToken",
   "jwtExpiration": 360000
 }
