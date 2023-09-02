@@ -24,10 +24,8 @@ router.post("/", async (req: Request, res: Response) => {
 		console.log(`received data from ${user.email}`);
 
 		const data = treatData(rounds, user);
-		const newData = await Data.findOneAndUpdate({ email: data.email }, data, {
-			upsert: true,
-			new: true,
-		});
+		const newData = new Data(data);
+		await newData.save();
 		res.json({
 			message: "success",
 		});
