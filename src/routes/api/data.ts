@@ -15,7 +15,7 @@ router.post("/", async (req: Request, res: Response) => {
 			});
 			return;
 		}
-		if (!user || !user.email || !user.age) {
+		if (!user || !user.email || !user.age || !user.name) {
 			res.status(400).json({
 				message: "can't do this",
 			});
@@ -72,6 +72,7 @@ function treatData(rounds: RoundData[], user: UserInfo) {
 	const data: TData = {
 		email: user.email,
 		age: user.age,
+		name: user.name,
 		maxRound: rounds_reached,
 		gameTime,
 		rounds: rounds_data,

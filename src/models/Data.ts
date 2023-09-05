@@ -4,6 +4,7 @@ import { Document, model, Schema } from "mongoose";
 export type TData = {
 	email: string;
 	age: number;
+	name: string;
 	gameTime: number;
 	maxRound: number;
 	rounds: TRound[];
@@ -27,6 +28,10 @@ const dataSchema: Schema = new Schema({
 	},
 	age: {
 		type: Number,
+		required: true,
+	},
+	name: {
+		type: String,
 		required: true,
 	},
 	gameTime: {
