@@ -45,4 +45,5 @@ export type UserInfo = {
 	email: string;
 	age: number;
 	name: string;
+	session_id: string;
 };

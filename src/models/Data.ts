@@ -5,6 +5,7 @@ export type TData = {
 	email: string;
 	age: number;
 	name: string;
+	session_id: string;
 	gameTime: number;
 	maxRound: number;
 	rounds: TRound[];
@@ -33,6 +34,11 @@ const dataSchema: Schema = new Schema({
 	name: {
 		type: String,
 		required: true,
+	},
+	session_id: {
+		type: String,
+		required: true,
+		unique: true,
 	},
 	gameTime: {
 		type: Number,

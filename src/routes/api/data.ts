@@ -15,17 +15,22 @@ router.post("/", async (req: Request, res: Response) => {
 			});
 			return;
 		}
-		if (!user || !user.email || !user.age || !user.name) {
+		if (!user || !user.email || !user.age || !user.name || !user.session_id) {
 			res.status(400).json({
 				message: "can't do this",
 			});
 			return;
 		}
-		console.log(`received data from ${user.email}`);
+		const session_id = user.session_id;
 
 		const data = treatData(rounds, user);
-		const newData = new Data(data);
-		await newData.save();
+		//check if data already exists
+		const updatedOrCreated = await Data.findOneAndUpdate({ session_id }, data, {
+			upsert: true,
+			new: true,
+		});
+		console.log(updatedOrCreated);
+
 		res.json({
 			message: "success",
 		});
@@ -73,6 +78,7 @@ function treatData(rounds: RoundData[], user: UserInfo) {
 		email: user.email,
 		age: user.age,
 		name: user.name,
+		session_id: user.session_id,
 		maxRound: rounds_reached,
 		gameTime,
 		rounds: rounds_data,
