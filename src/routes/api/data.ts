@@ -24,7 +24,7 @@ router.post("/", async (req: Request, res: Response) => {
 			!user.gender
 		) {
 			res.status(400).json({
-				message: "can't do this",
+				message: "can't do this!!",
 			});
 			return;
 		}
