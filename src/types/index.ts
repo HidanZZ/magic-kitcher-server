@@ -44,6 +44,7 @@ export type DataPayload = {
 export type UserInfo = {
 	email: string;
 	age: number;
+	gender: string;
 	name: string;
 	session_id: string;
 };

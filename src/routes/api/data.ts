@@ -15,7 +15,14 @@ router.post("/", async (req: Request, res: Response) => {
 			});
 			return;
 		}
-		if (!user || !user.email || !user.age || !user.name || !user.session_id) {
+		if (
+			!user ||
+			!user.email ||
+			!user.age ||
+			!user.name ||
+			!user.session_id ||
+			!user.gender
+		) {
 			res.status(400).json({
 				message: "can't do this",
 			});
@@ -78,6 +85,7 @@ function treatData(rounds: RoundData[], user: UserInfo) {
 		email: user.email,
 		age: user.age,
 		name: user.name,
+		gender: user.gender,
 		session_id: user.session_id,
 		maxRound: rounds_reached,
 		gameTime,
