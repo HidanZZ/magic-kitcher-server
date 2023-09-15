@@ -18,7 +18,7 @@ app.use(cors());
 // @desc    Test Base API
 // @access  Public
 app.get("/", (_req, res) => {
-	res.send("API Running");
+	res.send(`API Running current datetime is ${new Date()}`);
 });
 
 app.use("/api/userdata", data);
