@@ -81,10 +81,15 @@ function treatData(rounds: RoundData[], user: UserInfo) {
 		};
 		rounds_data.push(round_data);
 	}
+	const currentDateTimeUtcPlusTwo = new Date(
+		new Date().getTime() + 2 * 60 * 60 * 1000
+	);
+
 	const data: TData = {
 		email: user.email,
 		age: user.age,
 		name: user.name,
+		playedAt: currentDateTimeUtcPlusTwo,
 		gender: user.gender,
 		session_id: user.session_id,
 		maxRound: rounds_reached,

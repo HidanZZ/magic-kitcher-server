@@ -6,6 +6,7 @@ export type TData = {
 	age: number;
 	name: string;
 	gender: string;
+	playedAt: Date;
 	session_id: string;
 	gameTime: number;
 	maxRound: number;
@@ -34,6 +35,10 @@ const dataSchema: Schema = new Schema({
 	},
 	name: {
 		type: String,
+		required: true,
+	},
+	playedAt: {
+		type: Date,
 		required: true,
 	},
 	gender: {
