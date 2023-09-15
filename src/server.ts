@@ -3,7 +3,8 @@ import express from "express";
 import cors from "cors";
 import connectDB from "../config/database";
 import data from "./routes/api/data";
-
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 
 // Connect to MongoDB
